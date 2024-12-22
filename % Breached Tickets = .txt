@@ -1,0 +1,11 @@
+% Breached Tickets = 
+VAR TotalVisibleTickets = COUNTROWS('2023')  -- Count total visible tickets
+
+VAR BreachedTickets = COUNTROWS(FILTER('2023', '2023'[SLA Status] = "Breached SLA"))  -- Count breached tickets
+
+RETURN
+    DIVIDE(
+        BreachedTickets,
+        TotalVisibleTickets,
+        0  -- Handle division by zero, return 0 if there are no visible tickets
+    )

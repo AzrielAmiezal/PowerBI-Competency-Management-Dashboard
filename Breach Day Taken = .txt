@@ -1,0 +1,14 @@
+Breach Day Taken = 
+VAR DueDate = '2023'[Due Date]
+VAR ResolveDate = IF(ISBLANK('2023'[Resolve Date]), TODAY(), '2023'[Resolve Date]) --
+
+RETURN
+IF (
+        ISBLANK(DueDate) || ResolveDate < DueDate ||  ResolveDate = DueDate,
+        0,  -- If 'Due Date', resolved within SLA, or SLA status is not breached, return 0
+        (CALCULATE(
+            COUNTROWS(
+                CALENDAR(DueDate,ResolveDate) 
+            )
+        )-1) 
+    )

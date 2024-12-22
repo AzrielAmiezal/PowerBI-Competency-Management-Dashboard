@@ -1,0 +1,6 @@
+SLA Status = 
+    IF(
+        '2023'[Breach Day Taken] <> 0, -- If breach time taken not equal 0 then breached SLA, else Within SLA
+        "Breached SLA", "Within SLA" 
+        )
+    

@@ -1,0 +1,5 @@
+Sum Breach Day Taken = 
+CALCULATE(
+    SUM('Main_Competency'[Breach Day Taken]),
+    NOT(ISBLANK('Main_Competency'[Breach Day Taken]))
+)

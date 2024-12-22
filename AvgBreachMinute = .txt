@@ -1,0 +1,29 @@
+AvgBreachedHour = 
+
+VAR TotalBreachDayTaken = 
+    CALCULATE(
+        SUM('2023'[Breach Day Taken]),
+        NOT(ISBLANK('2023'[Breach Day Taken]))
+    )
+
+VAR TotalRows = COUNTROWS('2023')
+
+RETURN
+    (TotalBreachDayTaken / TotalRows) * 8
+
+
+-------------------------------------------------
+
+
+AvgBreachedMinute = 
+
+VAR TotalBreachDayTaken = 
+    CALCULATE(
+        SUM('Main_Competency'[Breach Day Taken]),
+        NOT(ISBLANK('Main_Competency'[Breach Day Taken]))
+    )
+
+VAR TotalRows = COUNTROWS('Main_Competency')
+
+RETURN
+    (TotalBreachDayTaken / TotalRows) * 8 * 60
